@@ -13,7 +13,7 @@ pipeline {
       //
       //H allows Jenkins to choose a suitable second/minute instead of every job checking at exactly the same moment.
     triggers {
-        pollSCM('H/1 * * * *')
+        pollSCM('H/* * * * *')
     }
 
     stages {
