@@ -8,6 +8,6 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String sayHello() {
-        return "Automatic Jenkins build is working!";
+        return "Automatic Jenkins polling is working!";
     }
 }
