@@ -1,6 +1,21 @@
 pipeline {
     agent any
 
+    // polling SCM
+    // Jenkins checks GitHub approximately every one minutes.
+
+    //Jenkins checks GitHub
+      //        ↓
+      //Is there a new commit?
+      //        ↓
+      //Yes → Start pipeline
+      //No  → Do nothing
+      //
+      //H allows Jenkins to choose a suitable second/minute instead of every job checking at exactly the same moment.
+    triggers {
+        pollSCM('H/1 * * * *')
+    }
+
     stages {
         stage('Compile') {
             steps {
