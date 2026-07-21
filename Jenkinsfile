@@ -2,20 +2,32 @@ pipeline {
     agent any
 
     stages {
-        stage('Build and Test') {
+        stage('Compile') {
             steps {
-                bat 'call mvnw.cmd clean verify'
+                bat 'call mvnw.cmd clean compile'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'call mvnw.cmd test'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                bat 'call mvnw.cmd package -DskipTests'
             }
         }
     }
 
     post {
         success {
-            echo 'Build and tests completed successfully!'
+            echo 'Build, tests and packaging completed successfully!'
         }
 
         failure {
-            echo 'Build failed. Check the Console Output.'
+            echo 'Pipeline failed. Check the failed stage and Console Output.'
         }
 
         always {
