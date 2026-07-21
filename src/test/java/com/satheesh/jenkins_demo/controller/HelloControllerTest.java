@@ -11,6 +11,6 @@ public class HelloControllerTest {
     void shouldReturnHelloMessage() {
         String response = helloController.sayHello();
 
-        Assertions.assertEquals("Hello from Jenkins!", response);
+        Assertions.assertEquals("Hello from Spring Boot and Jenkins!", response);
     }
 }
