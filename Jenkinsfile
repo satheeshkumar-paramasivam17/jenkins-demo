@@ -34,6 +34,12 @@ pipeline {
                 bat 'call mvnw.cmd package -DskipTests'
             }
         }
+
+        stage('Build Docker Image') {
+            steps {
+                bat 'docker build -t jenkins-demo:%BUILD_NUMBER% -t jenkins-demo:latest .'
+            }
+        }
     }
 
     post {

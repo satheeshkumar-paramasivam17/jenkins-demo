@@ -11,6 +11,6 @@ public class HelloControllerTest {
     void shouldReturnHelloMessage() {
         String response = helloController.sayHello();
 
-        Assertions.assertEquals("Automatic Jenkins polling is working!", response);
+        Assertions.assertEquals("Docker container is working!", response);
     }
 }
